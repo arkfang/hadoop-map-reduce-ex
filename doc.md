@@ -13,8 +13,8 @@
 
 ##功能流程
 > 1. 从access log中获取URL、referer、useragent参数
-> 2. 正则表达式匹配URL为 `/prop/view*` 的URL,网站为 `anjuke.com` 的域名，筛选出满足条件的日志记录
-> 3. 根据referer对统计访问来源
+> 2. 正则表达式匹配筛选出网站为 `anjuke.com` 的域名，URL为 `/prop/view*` 类的日志记录
+> 3. 从筛选出的日志记录，根据referer统计访问来源
      * 爬虫等(useragent内包含spider、bot等关键字的日志记录)
      * 站内网页(referer域名`anjuke.com`、`haozu.com`、`jinpu.com`的日志记录)
      * 站外网页(referer为不包含`anjuke.com`、`haozu.com`、`jinpu.com`域名，为其它正常网页的日志记录)
