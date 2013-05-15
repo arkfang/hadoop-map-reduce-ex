@@ -7,7 +7,7 @@
 > 根据访问日志数据，统计单页访问的来源
 
 ##输入输出格式
-> * 输入数据：输入数据为本网站的访问日志(access log)，包含了http head文件中相关信息。详细格式定义信息参考`src/main/java/com.anjuke.corp.ods.afs/Const.java`
+> * 输入数据：输入数据为本网站的访问日志(access log)，包含了http head文件中相关信息。详细格式定义信息参考`src/main/java/com.anjuke.corp.ods.alog/Const.java`
 > * 输出数据：输出数据为统计日志(result log)，格式为网页类别，相应数目。
      * 例：（站内网页  123)
 
