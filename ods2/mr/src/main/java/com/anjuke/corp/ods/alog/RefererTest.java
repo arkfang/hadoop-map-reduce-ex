@@ -46,8 +46,7 @@ public class RefererTest  {
                     }
                 }
             
-            }
-            catch (Exception e) {
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         }
