@@ -46,10 +46,10 @@ public class RefererTest  {
             	            values[Const.LOGFORMAT.get("referer")].contains("jinpu.com")) {
             	        context.write(_innerweb, _one);
             	    }
-            		else {
-            		    context.write(_outerweb, _one);
-            		}
-            	}
+                    else {
+                        context.write(_outerweb, _one);
+                    }
+                }
             
             }
             catch (Exception e) {
@@ -61,18 +61,18 @@ public class RefererTest  {
     public static class RefererTestReducer 	
         extends Reducer<Text, IntWritable, Text, IntWritable> {
         
-            private IntWritable result = new IntWritable();
-            
-            public void reduce(Text key, Iterable<IntWritable> values, Context context) 
-                    throws IOException, InterruptedException {
-            
+        private IntWritable _result = new IntWritable();
+        
+        public void reduce(Text key, Iterable<IntWritable> values, Context context) 
+                throws IOException, InterruptedException {
+        
             int sum = 0;
             for (IntWritable value : values) {
                 sum += value.get();
             }
             
-            result.set(sum);
-            context.write(key, result);	
+            _result.set(sum);
+            context.write(key, _result);	
         }
     }
     /**
@@ -83,27 +83,27 @@ public class RefererTest  {
      */
     public static void main(String[] args) 
             throws IOException, InterruptedException, ClassNotFoundException {
-        // TODO Auto-generated method stub
-        //Configuration conf = new Configuration();
-    		
+            // TODO Auto-generated method stub
+            //Configuration conf = new Configuration();
+            
             Job job = new Job();
             job.setJarByClass(RefererTest.class);
             
             FileInputFormat.addInputPaths(job, "/home/arkfang/alog.sample.log");
             FileOutputFormat.setOutputPath(job, new Path("/home/arkfang/alog.sample.log-out"));
-            	
-        	job.setMapperClass(RefererTestMapper.class);
-        	job.setReducerClass(RefererTestReducer.class);
-        	
-        	job.setOutputKeyClass(Text.class);
-        	job.setOutputValueClass(IntWritable.class);
-        	
-        	job.setMapOutputKeyClass(Text.class);
-        	job.setMapOutputValueClass(IntWritable.class);
-        	
-        	job.setInputFormatClass(TextInputFormat.class);
-        	
-        	System.exit(job.waitForCompletion(true) ? 0 : 1);
-        }
+                	
+            job.setMapperClass(RefererTestMapper.class);
+            job.setReducerClass(RefererTestReducer.class);
+            
+            job.setOutputKeyClass(Text.class);
+            job.setOutputValueClass(IntWritable.class);
+            
+            job.setMapOutputKeyClass(Text.class);
+            job.setMapOutputValueClass(IntWritable.class);
+            
+            job.setInputFormatClass(TextInputFormat.class);
+            
+            System.exit(job.waitForCompletion(true) ? 0 : 1);
+    }
         
 }
