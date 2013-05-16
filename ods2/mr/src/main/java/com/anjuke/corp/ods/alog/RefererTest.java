@@ -15,8 +15,8 @@ import org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;
 
 public class RefererTest  { 
 	
-    public static class RefererTestMapper extends 
-	    Mapper<Object, Text, Text, IntWritable> {
+    public static class RefererTestMapper 
+            extends Mapper<Object, Text, Text, IntWritable> {
     	
         private final static Text _bot = new Text("机器人");
         private final static Text _innerweb = new Text("内网");
@@ -35,12 +35,12 @@ public class RefererTest  {
                 if (values[Const.LOGFORMAT.get("request_uri")].startsWith("/prop/view")) {
             		
                     if (values[Const.LOGFORMAT.get("user_agent")].toLowerCase().contains("spider") | 
-            	            values[Const.LOGFORMAT.get("user_agent")].toLowerCase().contains("bot")) {
-            		    context.write(_bot, _one);
+            	        values[Const.LOGFORMAT.get("user_agent")].toLowerCase().contains("bot")) {
+                        context.write(_bot, _one);
             	    }
             	    else if (values[Const.LOGFORMAT.get("referer")].contains("anjuke.com") | 
-            	            values[Const.LOGFORMAT.get("referer")].contains("haozu.com") |
-            	            values[Const.LOGFORMAT.get("referer")].contains("jinpu.com")) {
+            	             values[Const.LOGFORMAT.get("referer")].contains("haozu.com") |
+            	             values[Const.LOGFORMAT.get("referer")].contains("jinpu.com")) {
             	        context.write(_innerweb, _one);
             	    }
                     else {
@@ -56,7 +56,7 @@ public class RefererTest  {
     }
 
     public static class RefererTestReducer 	
-        extends Reducer<Text, IntWritable, Text, IntWritable> {
+            extends Reducer<Text, IntWritable, Text, IntWritable> {
         
         private IntWritable _result = new IntWritable();
         
