@@ -35,12 +35,12 @@ public class RefererTest  {
                 if (values[Const.LOGFORMAT.get("request_uri")].startsWith("/prop/view")) {
             		
                     if (values[Const.LOGFORMAT.get("user_agent")].toLowerCase().contains("spider") | 
-            	        values[Const.LOGFORMAT.get("user_agent")].toLowerCase().contains("bot")) {
+            	            values[Const.LOGFORMAT.get("user_agent")].toLowerCase().contains("bot")) {
                         context.write(_bot, _one);
             	    }
             	    else if (values[Const.LOGFORMAT.get("referer")].contains("anjuke.com") | 
-            	             values[Const.LOGFORMAT.get("referer")].contains("haozu.com") |
-            	             values[Const.LOGFORMAT.get("referer")].contains("jinpu.com")) {
+            	            values[Const.LOGFORMAT.get("referer")].contains("haozu.com") |
+            	            values[Const.LOGFORMAT.get("referer")].contains("jinpu.com")) {
             	        context.write(_innerweb, _one);
             	    }
                     else {
