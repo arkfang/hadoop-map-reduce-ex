@@ -23,9 +23,6 @@ public class RefererTest  {
         private final static Text _outerweb = new Text("外网");
         private final static Text _rest = new Text("其他");
     	
-        /*private final static Text bot = new Text("bot");
-        private final static Text innerweb = new Text("innerweb");
-        private final static Text outerweb = new Text("outerweb");*/
         private final static IntWritable _one = new IntWritable(1);
 		
         public void map(Object key, Text value, Context context) 
@@ -83,27 +80,28 @@ public class RefererTest  {
      */
     public static void main(String[] args) 
             throws IOException, InterruptedException, ClassNotFoundException {
-            // TODO Auto-generated method stub
-            //Configuration conf = new Configuration();
+        
+        // TODO Auto-generated method stub
+        //Configuration conf = new Configuration();
             
-            Job job = new Job();
-            job.setJarByClass(RefererTest.class);
-            
-            FileInputFormat.addInputPaths(job, "/home/arkfang/alog.sample.log");
-            FileOutputFormat.setOutputPath(job, new Path("/home/arkfang/alog.sample.log-out"));
-                	
-            job.setMapperClass(RefererTestMapper.class);
-            job.setReducerClass(RefererTestReducer.class);
-            
-            job.setOutputKeyClass(Text.class);
-            job.setOutputValueClass(IntWritable.class);
-            
-            job.setMapOutputKeyClass(Text.class);
-            job.setMapOutputValueClass(IntWritable.class);
-            
-            job.setInputFormatClass(TextInputFormat.class);
-            
-            System.exit(job.waitForCompletion(true) ? 0 : 1);
+        Job job = new Job();
+        job.setJarByClass(RefererTest.class);
+        
+        FileInputFormat.addInputPaths(job, "/home/arkfang/alog.sample.log");
+        FileOutputFormat.setOutputPath(job, new Path("/home/arkfang/alog.sample.log-out"));
+            	
+        job.setMapperClass(RefererTestMapper.class);
+        job.setReducerClass(RefererTestReducer.class);
+        
+        job.setOutputKeyClass(Text.class);
+        job.setOutputValueClass(IntWritable.class);
+        
+        job.setMapOutputKeyClass(Text.class);
+        job.setMapOutputValueClass(IntWritable.class);
+        
+        job.setInputFormatClass(TextInputFormat.class);
+        
+        System.exit(job.waitForCompletion(true) ? 0 : 1);
     }
         
 }
