@@ -4,4 +4,7 @@
   
   *** 
   
-  修改
+  打开`hadoop/vim/hadoop`文件，最后的执行语句：`exec "$JAVA" -Dproc_$COMMAND $JAVA_HEAP_MAX $HADOOP_OPTS -classpath`
+    `"$CLASSPATH" $CLASS "$@"`,则表明hadoop命令行最终将命令转换为 `java jar -classpath CLASSPATH *.jar`,
+同时引入hadoop库函数，搭建hadoop环境
+  
