@@ -8,9 +8,11 @@
 ***
 程序安装说明：
 
-1. 请确认安装maven
-2. 于根目录下，执行mvn install（请保证联网）
-3. 执行mvn clean package命令生成对应的Jar包
+1. 搭建maven环境：`sudo aptitude install maven2`或手动安装，[下载](http://maven.apache.org/)。
+2. 搭建hadoop运行环境:`sudo aptitude install hadoop`或手动安装，[下载](http://hadoop.apache.org/)。
+3. 打开`.bashrc`，添加`export HADOOP_HOME=home/${username}/Downloads/hadoop`、`export PATH=$PATH:$HADOOP_HOOME/bin`。
+4. 于本程序根目录下，执行`mvn install`（请保证联网）
+5. 执行`mvn package`命令生成对应的Jar包，jar包位于target目录下`hadoop-map-reduce-ex-1.0-SNAPSHOT.jar`
 
 ***
 
