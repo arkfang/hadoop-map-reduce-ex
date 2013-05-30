@@ -29,9 +29,9 @@
 程序根目录下，执行命令：
 
 ```
-CLASS_PATH=lib/anjuke-ods-mr-1.0-SNAPSHOT.jar
+HADOOP_CLASSPATH=lib/anjuke-ods-mr-1.0-SNAPSHOT.jar
 
-hadoop jar target/hadoop-map-reduce-ex-1.0-SNAPSHOT.jar com.anjuke.corp.ods.alog.Referer <InputPath> [OutputPath]
+hadoop jar target/hadoop-map-reduce-ex-1.0.0.jar com.anjuke.corp.ods.alog.Referer <InputPath> [OutputPath]
 ```
 
 **若未输入`OutputPath`参数，则输出结果默认当前路径，`InputPath + "-out"`文件夹内**
