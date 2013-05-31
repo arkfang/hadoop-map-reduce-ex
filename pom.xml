@@ -1,12 +1,12 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.anjuke.corp</groupId>
-  <artifactId>hadoop-map-reduce-ex</artifactId>
-  <packaging>jar</packaging>
-  <version>1.0.0</version>
-  <name>hadoop-map-reduce-ex</name>
-  <url>http://maven.apache.org</url>
+ <modelVersion>4.0.0</modelVersion>
+ <groupId>com.anjuke.corp</groupId>
+ <artifactId>hadoop-map-reduce-ex</artifactId>
+ <packaging>jar</packaging>
+ <version>1.0.0</version>
+ <name>hadoop-map-reduce-ex</name>
+ <url>http://maven.apache.org</url>
   
     <dependencies>
         <dependency>
@@ -41,7 +41,7 @@
     <repository>
         <id>dev-repository</id>
         <name>Archiva Managed Snapshot Repository</name>
-	    <url>http://maven.dev.aifang.com/nexus/content/repositories/dev-repository</url>
+	<url>http://maven.dev.aifang.com/nexus/content/repositories/dev-repository</url>
 	<snapshots><enabled>false</enabled></snapshots>
 	<releases><enabled>true</enabled></releases>
     </repository>
